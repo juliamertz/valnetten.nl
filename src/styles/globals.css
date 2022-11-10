@@ -1,0 +1,47 @@
+:root {
+  --orange-400: #f5b056;
+  --orange-500: #f2952c;
+  --orange-600: #ec8327;
+  --orange-700: #da6416;
+  --orange-800: #b9561d;
+  --orange-900: #9f4d1d;
+
+  --ease: cubic-bezier(0.86, 0, 0.07, 1);
+
+  --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+  --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+ul {
+  white-space: normal;
+  list-style-position: inside;
+}
+
+a {
+  color: var(--orange-600);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  max-width: 32ch;
+  font-size: var(--font-size-lg);
+}
