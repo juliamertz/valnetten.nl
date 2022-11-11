@@ -3,14 +3,16 @@
     <h1>VALNETTEN<span>.</span>NL</h1>
   </section>
   <nav>
-    <ul>
-      <a class="link-underline" href="/"><li>Home</li></a>
-      <a class="link-underline" href="/randbeveiliging"
-        ><li>Randbeveiliging</li>
-      </a>
-      <a class="link-underline" href="/diensten"><li>Diensten</li></a>
-      <a class="link-underline" href="/contact"><li>Contact</li></a>
-    </ul>
+    <a class="link-underline" href="/"><button>Home</button></a>
+    <a class="link-underline" href="/randbeveiliging"
+      ><button>Randbeveiliging</button>
+    </a>
+    <a class="link-underline" href="/diensten">
+      <button>Diensten</button>
+    </a>
+    <a class="link-underline" href="/contact">
+      <button>Contact</button>
+    </a>
   </nav>
 </header>
 
@@ -43,45 +45,51 @@
     font-size: 2rem;
   }
 
-  nav ul {
+  nav {
     display: flex;
     list-style: none;
     flex-flow: row nowrap;
     align-items: center;
-    height: 100%;
     position: relative;
   }
-  nav ul a {
+  nav button {
     height: max-content;
     padding: 1rem;
     display: grid;
     place-items: center;
     cursor: pointer;
+    top: 10px;
     height: 100%;
     font-weight: 500;
     transition: background 200ms var(--ease);
     position: relative;
-    top: 10px;
+    outline: none;
+    border: none;
+    background: none;
   }
 
-  nav ul a::after {
+  nav button::after {
     content: "";
     width: 100%;
     transform: scaleX(0);
     transform-origin: left;
     height: 2px;
     background: var(--orange-600);
-    bottom: 10px;
+    bottom: 0px;
     position: relative;
     transition: all 300ms var(--ease);
+    font-size: var(--font-size-base);
   }
 
-  nav ul a:hover::after {
+  nav button:hover::after {
     transform: scaleX(1);
   }
 
-  ul > a {
+  a {
     text-decoration: none;
+  }
+
+  a button {
     color: black;
     text-transform: uppercase;
     font-weight: 600;

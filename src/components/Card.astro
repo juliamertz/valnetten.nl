@@ -23,7 +23,7 @@ const img = generateImage(image, {
     width: 100%;
     aspect-ratio: 2/3;
     overflow: hidden;
-    background: firebrick;
+    background: rgb(18, 18, 18);
     position: relative;
   }
   .card .background-wrapper {
@@ -41,17 +41,17 @@ const img = generateImage(image, {
     left: -50%;
   }
   .card .background-wrapper::after {
-    background: var(--orange-900);
+    background: black;
     content: "";
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: all 300ms var(--ease);
   }
   .card .background-wrapper:hover::after {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   .card .background-wrapper:hover img {
