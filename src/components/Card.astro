@@ -1,0 +1,68 @@
+---
+const { name, image, location } = Astro.props;
+
+import { generateImage } from "astro-eleventy-img";
+
+const img = generateImage(image, {
+  widths: [600],
+  formats: ["webp", "avif"],
+});
+---
+
+<div class="card">
+  <a href={location}>
+    <div class="background-wrapper">
+      <img src={img.avif[0].outputPath} alt={name} />
+    </div>
+  </a>
+  <h1>{name}</h1>
+</div>
+
+<style>
+  .card {
+    width: 100%;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+    background: firebrick;
+    position: relative;
+  }
+  .card .background-wrapper {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+  }
+  .card .background-wrapper img {
+    transition: all 300ms var(--ease);
+    min-height: 100%;
+    position: absolute;
+    inset: 0;
+    left: -50%;
+  }
+  .card .background-wrapper::after {
+    background: var(--orange-900);
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    transition: all 300ms var(--ease);
+  }
+  .card .background-wrapper:hover::after {
+    opacity: 0.6;
+  }
+
+  .card .background-wrapper:hover img {
+    transform: scale(1.05);
+  }
+  .card h1 {
+    position: absolute;
+    bottom: 0;
+    z-index: 20;
+    padding: 1rem;
+    color: white;
+    font-size: var(--font-size-lg);
+  }
+</style>
