@@ -1,0 +1,8 @@
+{
+  "name": "Valnetten.nl",
+  "short_name": "Valnetten",
+  "theme_color": "#ec8327",
+  "background_color": "#fff",
+  "start_url": ".",
+  "display": "standalone"
+}

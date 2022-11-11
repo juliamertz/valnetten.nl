@@ -20,9 +20,6 @@ const { frontmatter } = Astro.props;
   <body>
     <Navigation />
     <main>
-      <div class="background-wrapper">
-        <img src="/assets/images/k-PiUAKw4J-1000.avif" alt="background image" />
-      </div>
       <div class="slot">
         <slot />
       </div>
@@ -31,11 +28,9 @@ const { frontmatter } = Astro.props;
       <Content />
     </section>
     <style is:global>
-      header {
-        color: white;
-      }
-      header nav ul a {
-        color: white;
+      h1 {
+        text-transform: uppercase;
+        font-weight: 700;
       }
     </style>
     <style>
@@ -51,8 +46,7 @@ const { frontmatter } = Astro.props;
 
       main {
         z-index: 20;
-        color: white;
-        height: calc(100% - 4rem);
+        background: white;
       }
 
       .background-wrapper {
