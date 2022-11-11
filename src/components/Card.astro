@@ -12,11 +12,12 @@ const img = generateImage(image, {
 <div class="card">
   <a href={location}>
     <div class="background-wrapper">
-      <img src={img.avif[0].outputPath} alt={name} />
+      <img src={img.avif[0].url} alt={name} />
     </div>
   </a>
   <h1>{name}</h1>
 </div>
+{JSON.stringify(img)}
 
 <style>
   .card {
