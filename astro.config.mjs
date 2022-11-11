@@ -7,6 +7,7 @@ import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://valnetten-nl-git-development-jorismertz.vercel.app/",
   integrations: [mdx(), sitemap(), robotsTxt(), prefetch()],
   vite: {
     ssr: {
