@@ -95,6 +95,7 @@ a button {
   height: 100%;
   padding-right: 4rem;
   transition: all 300ms var(--ease);
+  /* opacity: calc(var(--show-mobile) / 100); */
   transform: translateX(calc(-1 * var(--hide-mobile) * 1%));
 }
 
@@ -109,6 +110,12 @@ a button {
 
 .mobile button {
   font-size: var(--font-size-xl);
+}
+
+@media (max-width: 560px) {
+  header {
+    padding: 0.5rem 1rem;
+  }
 }
 
 @media (max-width: 940px) {
