@@ -11,8 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-public/assets/images/**
-
 # environment variables
 .env
 .env.production
