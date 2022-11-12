@@ -5,7 +5,7 @@ import { generateImage } from "astro-eleventy-img";
 
 const img = generateImage(image, {
   widths: [600],
-  formats: ["webp", "avif"],
+  formats: ["avif"],
 });
 ---
 
@@ -64,5 +64,15 @@ const img = generateImage(image, {
     padding: 1rem;
     color: white;
     font-size: var(--font-size-lg);
+  }
+
+  @media (max-width: 1000px) {
+    .card {
+      max-height: 25vh;
+    }
+    .card img {
+      min-width: 100vw;
+      left: 0 !important;
+    }
   }
 </style>

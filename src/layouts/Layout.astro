@@ -10,7 +10,7 @@ let img;
 if (frontmatter.image)
   img = generateImage(frontmatter.image, {
     widths: [1000],
-    formats: ["webp", "avif"],
+    formats: ["avif"],
   });
 
 const imgSrc = frontmatter.image ? img.avif[0].url : "";
