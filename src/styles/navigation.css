@@ -93,15 +93,17 @@ a button {
   align-items: start;
   position: fixed;
   height: 100%;
+  padding-right: 4rem;
   transition: all 300ms var(--ease);
-  transform: translateX(calc(-1 * var(--hide-mobile) * 4px));
+  transform: translateX(calc(-1 * var(--hide-mobile) * 1%));
 }
 
 .mobile .exit-button {
   position: absolute;
   width: 1.5rem;
   align-self: end;
-  margin: 1rem 2rem;
+  top: 1rem;
+  right: 2rem;
   cursor: pointer;
 }
 
