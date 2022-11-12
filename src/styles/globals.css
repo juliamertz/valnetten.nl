@@ -36,6 +36,14 @@ ul {
   list-style-position: inside;
 }
 
+ul > li {
+  background: url("/assets/arrow-right.svg") no-repeat left center;
+  padding: 3px 0px 3px 20px;
+  background-size: 10px;
+  list-style: none;
+  margin: 0;
+}
+
 a {
   color: var(--orange-600);
 }
