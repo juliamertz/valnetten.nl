@@ -8,7 +8,7 @@ const { text = "Button", intent = "primary", href } = Astro.props;
 ---
 
 <a href={href}>
-  <button
+  <button tabindex="-1"
     ><p>{text}</p>
     <img src="/assets/arrow-right.svg" alt="arrow right" />
   </button>
@@ -35,6 +35,9 @@ const { text = "Button", intent = "primary", href } = Astro.props;
     align-items: center;
     position: relative;
   }
+  a:focus-visible {
+    outline: none;
+  }
   button p {
     width: max-content;
   }
@@ -54,7 +57,8 @@ const { text = "Button", intent = "primary", href } = Astro.props;
     transition: all 300ms var(--ease);
   }
 
-  button:hover::after {
+  button:hover::after,
+  a:focus button::after {
     transform: scaleX(1.25);
   }
 </style>

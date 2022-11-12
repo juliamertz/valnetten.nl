@@ -44,6 +44,11 @@ ul > li {
   margin: 0;
 }
 
+p,
+li {
+  max-width: 80ch;
+}
+
 a {
   color: var(--orange-600);
 }

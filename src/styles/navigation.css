@@ -41,6 +41,10 @@ nav button {
   background: none;
 }
 
+nav a:focus-visible {
+  outline: none;
+}
+
 nav span::after {
   content: "";
   width: calc(100% - 2rem);
@@ -56,6 +60,10 @@ nav span::after {
 }
 
 nav button:hover span::after {
+  transform: scaleX(1);
+}
+
+nav a:focus span::after {
   transform: scaleX(1);
 }
 

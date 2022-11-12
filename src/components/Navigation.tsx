@@ -5,9 +5,11 @@ const [showNavigation, setShowNavigation] = createSignal(false);
 const toggleNavigation = () => setShowNavigation(!showNavigation());
 
 const MobileNavigation = () => {
+  const tabIndex = showNavigation() ? "1" : "-1";
   return (
     <main
       class="mobile"
+      aria-hidden={showNavigation() ? "false" : "true"}
       style={`
       --show-mobile: ${showNavigation() ? 100 : 0}; 
       --hide-mobile: ${showNavigation() ? 0 : 100}; 
@@ -20,23 +22,23 @@ const MobileNavigation = () => {
           src="/assets/x-mark.svg"
           alt="close"
         />
-        <a class="link-underline" href="/">
-          <button>
+        <a tabIndex={tabIndex} class="link-underline" href="/">
+          <button tabIndex="-1" aria-hidden="true">
             <span>Home</span>
           </button>
         </a>
-        <a class="link-underline" href="/randbeveiliging">
-          <button>
+        <a tabIndex={tabIndex} class="link-underline" href="/randbeveiliging">
+          <button tabIndex="-1" aria-hidden="true">
             <span> Randbeveiliging</span>
           </button>
         </a>
-        <a class="link-underline" href="/diensten">
-          <button>
+        <a tabIndex={tabIndex} class="link-underline" href="/diensten">
+          <button tabIndex="-1" aria-hidden="true">
             <span> Diensten</span>
           </button>
         </a>
-        <a class="link-underline" href="/contact">
-          <button>
+        <a tabIndex={tabIndex} class="link-underline" href="/contact">
+          <button tabIndex="-1" aria-hidden="true">
             <span> Contact</span>
           </button>
         </a>
@@ -57,22 +59,22 @@ const Navigation = () => {
         </section>
         <nav style={`--show-mobile: ${showNavigation() ? "100" : "0"}`}>
           <a class="link-underline" href="/">
-            <button>
+            <button tabIndex="-1">
               <span>Home</span>
             </button>
           </a>
           <a class="link-underline" href="/randbeveiliging">
-            <button>
+            <button tabIndex="-1">
               <span> Randbeveiliging</span>
             </button>
           </a>
           <a class="link-underline" href="/diensten">
-            <button>
+            <button tabIndex="-1">
               <span> Diensten</span>
             </button>
           </a>
           <a class="link-underline" href="/contact">
-            <button>
+            <button tabIndex="-1">
               <span> Contact</span>
             </button>
           </a>

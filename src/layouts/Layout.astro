@@ -25,6 +25,7 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
       <section>
         <img src={imgSrc} alt="banner image" />
       </section>
+      <h1>{frontmatter.title.toUpperCase()}</h1>
       <slot />
     </main>
     <style>
