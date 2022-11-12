@@ -1,23 +1,59 @@
 ---
+import { generateImage } from "astro-eleventy-img";
 import Head from "../components/Head.astro";
-import Navigation from "../components/Navigation.astro";
+import Navigation from "../components/Navigation";
 import "../styles/globals.css";
 
 const { frontmatter } = Astro.props;
+let img;
+
+if (frontmatter.image)
+  img = generateImage(frontmatter.image, {
+    widths: [1000],
+    formats: ["avif"],
+  });
+
+const imgSrc = frontmatter.image ? img.avif[0].url : "";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <Head {...frontmatter} />
   <body>
-    <Navigation />
+    <Navigation client:load />
     <main>
+      <section>
+        <img src={imgSrc} alt="banner image" />
+      </section>
       <slot />
     </main>
     <style>
       main {
-        padding: 1rem 3rem;
+        margin-top: -1rem;
+        padding: 0 3rem;
         white-space: pre-line;
+      }
+      main section {
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
+        height: 30rem;
+        left: -3rem;
+      }
+      main section::after {
+        width: 100vw;
+        content: "";
+        background: black;
+        position: absolute;
+        overflow: hidden;
+        height: 30rem;
+        top: 0;
+        opacity: 0.55;
+      }
+      main section img {
+        min-width: 100%;
+        position: absolute;
+        inset: 0;
       }
     </style>
   </body>

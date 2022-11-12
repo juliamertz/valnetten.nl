@@ -28,7 +28,7 @@ body {
   height: 100%;
   font-family: "Inter", sans-serif;
   font-display: optional;
-  background: #f3f3f3;
+  background: #fff;
   scroll-behavior: smooth;
 }
 ul {
@@ -54,5 +54,12 @@ h2 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   max-width: 1500px;
-  margin: 0 auto;
+  margin: 1rem auto;
+}
+
+@media (max-width: 1000px) {
+  .card-wrapper {
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }

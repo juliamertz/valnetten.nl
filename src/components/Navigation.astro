@@ -1,18 +1,31 @@
+---
+export let showMobileNavigation = false;
+---
+
 <header>
   <section>
     <h1>VALNETTEN<span>.</span>NL</h1>
   </section>
-  <nav>
-    <ul>
-      <a class="link-underline" href="/"><li>Home</li></a>
-      <a class="link-underline" href="/randbeveiliging"
-        ><li>Randbeveiliging</li>
-      </a>
-      <a class="link-underline" href="/diensten"><li>Diensten</li></a>
-      <a class="link-underline" href="/contact"><li>Contact</li></a>
-    </ul>
+  <nav style={`--show-mobile: ${showMobileNavigation}`}>
+    <a class="link-underline" href="/"><button><span>Home</span></button></a>
+    <a class="link-underline" href="/randbeveiliging"
+      ><button><span> Randbeveiliging</span></button>
+    </a>
+    <a class="link-underline" href="/diensten">
+      <button><span> Diensten</span></button>
+    </a>
+    <a class="link-underline" href="/contact">
+      <button><span> Contact</span></button>
+    </a>
   </nav>
+  <img class="menu-icon" src="/assets/menu-icon.svg" alt="menu" />
 </header>
+
+<script>
+  document.querySelector(".menu-icon")?.addEventListener("click", (e) => {
+    // showMobileNavigation = true;
+  });
+</script>
 
 <style>
   header {
@@ -21,16 +34,13 @@
     position: sticky;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     background: white;
     color: black;
     z-index: 30;
     gap: 2rem;
     top: 0;
-    padding: 0 3rem;
-  }
-
-  header section {
-    padding: 1rem 0;
+    padding: 0.5rem 3rem;
   }
 
   header section h1 {
@@ -43,53 +53,64 @@
     font-size: 2rem;
   }
 
-  nav ul {
+  nav {
     display: flex;
-    list-style: none;
     flex-flow: row nowrap;
     align-items: center;
-    height: 100%;
     position: relative;
   }
-  nav ul a {
+  nav button {
     height: max-content;
     padding: 1rem;
-    display: grid;
-    place-items: center;
     cursor: pointer;
     height: 100%;
     font-weight: 500;
-    transition: background 200ms var(--ease);
     position: relative;
-    top: 10px;
+    outline: none;
+    border: none;
+    background: none;
   }
 
-  nav ul a::after {
+  nav span::after {
     content: "";
-    width: 100%;
+    width: calc(100% - 2rem);
     transform: scaleX(0);
     transform-origin: left;
     height: 2px;
     background: var(--orange-600);
-    bottom: 10px;
-    position: relative;
+    bottom: 0.8rem;
+    left: 1rem;
+    position: absolute;
     transition: all 300ms var(--ease);
+    font-size: var(--font-size-base);
   }
 
-  nav ul a:hover::after {
+  nav button:hover span::after {
     transform: scaleX(1);
   }
 
-  ul > a {
+  a {
     text-decoration: none;
+  }
+
+  a button {
     color: black;
     text-transform: uppercase;
     font-weight: 600;
   }
 
+  .menu-icon {
+    height: 1.5rem;
+    display: none;
+    cursor: pointer;
+  }
+
   @media (max-width: 940px) {
     nav {
       display: none;
+    }
+    .menu-icon {
+      display: block;
     }
   }
 </style>

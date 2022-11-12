@@ -1,14 +1,14 @@
 ---
 import { generateImage } from "astro-eleventy-img";
 
-import Navigation from "../components/Navigation.astro";
+import Navigation from "../components/Navigation";
 import Content from "../content/home.mdx";
 import "../styles/globals.css";
 import Head from "../components/Head.astro";
 
 const background = generateImage("src/assets/background.jpg", {
   widths: [1000],
-  formats: ["webp", "avif"],
+  formats: ["avif"],
 });
 
 const { frontmatter } = Astro.props;
@@ -18,14 +18,16 @@ const { frontmatter } = Astro.props;
 <html lang="en">
   <Head {...frontmatter} />
   <body>
-    <Navigation />
+    <Navigation client:load />
     <main>
       <div class="slot">
         <slot />
       </div>
     </main>
     <section id="content">
-      <Content />
+      <div>
+        <Content />
+      </div>
     </section>
     <style is:global>
       h1 {
@@ -38,15 +40,28 @@ const { frontmatter } = Astro.props;
         position: relative;
         z-index: 20;
       }
-      main,
+
       section {
         padding: 1rem 3rem;
         white-space: pre-line;
+        width: 100%;
+        background: #fafafa;
       }
 
+      main div {
+        padding: 0 3rem;
+      }
+
+      section div,
+      main {
+        max-width: 1500px;
+        margin: 0 auto;
+      }
       main {
         z-index: 20;
         background: white;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
       }
 
       .background-wrapper {
