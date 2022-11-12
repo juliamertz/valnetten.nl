@@ -33,6 +33,7 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
         padding: 0 3rem;
         white-space: pre-line;
       }
+
       main section {
         width: 100vw;
         position: relative;
@@ -40,6 +41,17 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
         height: 30rem;
         left: -3rem;
       }
+
+      @media (max-width: 560px) {
+        main {
+          padding: 0 1rem;
+        }
+        main section {
+          left: -1rem;
+          height: 20rem;
+        }
+      }
+
       main section::after {
         width: 100vw;
         content: "";
