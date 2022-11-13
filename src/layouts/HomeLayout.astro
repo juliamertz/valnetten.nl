@@ -6,11 +6,6 @@ import Content from "../content/home.mdx";
 import "../styles/globals.css";
 import Head from "../components/Head.astro";
 
-const background = generateImage("src/assets/background.jpg", {
-  widths: [1000],
-  formats: ["avif"],
-});
-
 const { frontmatter } = Astro.props;
 ---
 
@@ -34,7 +29,9 @@ const { frontmatter } = Astro.props;
         text-transform: uppercase;
         font-weight: 700;
       }
-      .slot h3 {
+      .slot h2 {
+        font-size: var(--font-size-base);
+        max-width: none;
         font-weight: 300;
       }
     </style>
