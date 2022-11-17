@@ -8,12 +8,30 @@ import prefetch from "@astrojs/prefetch";
 import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
 export default defineConfig({
-  site: "https://valnetten-nl.vercel.app",
-  integrations: [mdx(), sitemap(), robotsTxt(), prefetch(), solidJs()],
+  site: "https://wwww.valnetten.nl",
+  integrations: [
+    mdx(),
+
+    robotsTxt({
+      host: "https://wwww.valnetten.nl",
+    }),
+    prefetch({
+      
+    }),
+    solidJs(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
   vite: {
     ssr: {
-      external: ["@11ty/eleventy-img"]
-    }
-  }
+      external: ["@11ty/eleventy-img"],
+    },
+  },
 });
