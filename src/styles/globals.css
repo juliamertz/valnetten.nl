@@ -1,12 +1,17 @@
 :root {
-  --orange-400: #f5b056;
-  --orange-500: #f2952c;
-  --orange-600: #ec8327;
-  --orange-700: #da6416;
-  --orange-800: #b9561d;
-  --orange-900: #9f4d1d;
+  --orange-50: #fff7eb;
+  --orange-100: #ffefd6;
+  --orange-200: #ffd9a8;
+  --orange-300: #feba72;
+  --orange-400: #fa923d;
+  --orange-500: #f6711e;
+  --orange-600: #e45011;
+  --orange-700: #ba3912;
+  --orange-800: #952f18;
+  --orange-900: #772818;
 
   --ease: cubic-bezier(0.86, 0, 0.07, 1);
+  --shadow: 5px 4px 4px 0px rgb(0 0 0 / 10%);
 
   --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
   --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
@@ -50,7 +55,9 @@ li {
 }
 
 a {
-  color: var(--orange-800);
+  color: var(--orange-600);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 h1 {
