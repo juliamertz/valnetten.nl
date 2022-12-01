@@ -56,8 +56,8 @@ li {
 
 a {
   color: var(--orange-600);
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  font-weight: 600 !important;
+  /* letter-spacing: 0.25px; */
 }
 
 h1 {
