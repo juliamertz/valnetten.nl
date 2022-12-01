@@ -10,7 +10,7 @@ const { text = "Button", intent = "primary", href } = Astro.props;
 <a href={href}>
   <button tabindex="-1"
     ><p>{text}</p>
-    <img src="/assets/arrow-right.svg" alt="arrow right" />
+    <img src="/assets/arrow-right-white.svg" alt="arrow right" />
   </button>
 </a>
 
@@ -20,15 +20,19 @@ const { text = "Button", intent = "primary", href } = Astro.props;
     width: auto;
   }
   button {
-    padding: 0.5rem 0;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0 1rem 0;
     font-size: var(--font-size-base);
-    background: none;
+    color: white !important;
+    background: var(--orange-500);
     text-transform: uppercase;
     text-align: left;
     border-radius: 5px;
     font-weight: 600;
     outline: none;
     border: none;
+    border-bottom: 1px solid var(--orange-700);
+    border-top: 1px solid var(--orange-300);
     cursor: pointer;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -51,7 +55,7 @@ const { text = "Button", intent = "primary", href } = Astro.props;
     transform: scaleX(0);
     transform-origin: left;
     height: 2px;
-    background: var(--orange-600);
+    background: white;
     bottom: 0px;
     position: relative;
     transition: all 300ms var(--ease);

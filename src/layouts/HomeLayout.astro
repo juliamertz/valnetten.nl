@@ -19,20 +19,22 @@ const { frontmatter } = Astro.props;
         <slot />
       </div>
     </main>
-    <section id="content">
-      <div>
+    <div class="content-wrapper">
+      <section id="content">
         <Content />
-      </div>
-    </section>
+      </section>
+    </div>
     <style is:global>
       h1 {
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 600;
       }
       .slot h2 {
         font-size: var(--font-size-base);
         max-width: none;
-        font-weight: 300;
+        font-weight: 400;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
       }
     </style>
     <style>
@@ -41,10 +43,16 @@ const { frontmatter } = Astro.props;
         z-index: 20;
       }
 
-      section {
-        padding: 1rem 3rem;
+      section#content {
         white-space: pre-line;
         width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .content-wrapper {
+        padding: 1rem 3rem;
         background: #fafafa;
       }
 
@@ -53,7 +61,9 @@ const { frontmatter } = Astro.props;
       }
 
       @media (max-width: 560px) {
-        main div {
+        main div,
+        section#content,
+        .content-wrapper {
           padding: 0 1rem;
         }
       }

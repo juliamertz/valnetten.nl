@@ -25,12 +25,14 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
       <section>
         <img src={imgSrc} alt="banner image" />
       </section>
-      <h1>{frontmatter.title.toUpperCase()}</h1>
-      <slot />
+      <article>
+        <h1>{frontmatter.title.toUpperCase()}</h1>
+        <slot />
+      </article>
     </main>
     <style>
       main {
-        margin-top: -1rem;
+        margin-top: -1.2rem;
         padding: 0 3rem;
         white-space: pre-line;
       }
@@ -51,6 +53,11 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
           left: -1rem;
           height: 20rem;
         }
+      }
+
+      main article {
+        max-width: 1000px;
+        margin: 0 auto;
       }
 
       main section::after {
