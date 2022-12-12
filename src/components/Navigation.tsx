@@ -13,7 +13,9 @@ const MobileNavigation = () => {
       style={`
       --show-mobile: ${showNavigation() ? 100 : 0}; 
       --hide-mobile: ${showNavigation() ? 0 : 100}; 
-      --pointer-events: ${showNavigation() ? "all" : "none"}`}
+      --pointer-events: ${showNavigation() ? "all" : "none"};
+      opacity: ${showNavigation() ? 1 : 0};
+      `}
     >
       <nav>
         <img
