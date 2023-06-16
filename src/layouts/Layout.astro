@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 let img;
 
 if (frontmatter.image)
-  img = generateImage(frontmatter.image, {
+  img = await generateImage(frontmatter.image, {
     widths: [1000],
     formats: ["avif"],
   });

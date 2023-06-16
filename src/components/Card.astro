@@ -3,7 +3,7 @@ const { name, image, location } = Astro.props;
 
 import { generateImage } from "astro-eleventy-img";
 
-const img = generateImage(image, {
+const img = await generateImage(image, {
   widths: [825],
   formats: ["avif"],
 });
