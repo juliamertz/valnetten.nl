@@ -20,3 +20,4 @@ pnpm-debug.log*
 
 .awsrc
 .direnv
+.astro
