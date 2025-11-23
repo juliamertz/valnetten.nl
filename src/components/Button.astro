@@ -2,67 +2,18 @@
 interface Props {
   text?: string;
   href?: string;
+  intent?: string;
 }
 
 const { text = "Button", intent = "primary", href } = Astro.props;
 ---
 
-<a href={href}>
-  <button tabindex="-1"
-    ><p>{text}</p>
-    <img src="/assets/arrow-right-white.svg" alt="arrow right" />
-  </button>
+<a 
+  href={href} 
+  class="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg shadow-md hover:bg-orange-700 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+>
+  <span>{text}</span>
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  </svg>
 </a>
-
-<style>
-  a {
-    text-decoration: none;
-    width: auto;
-  }
-  button {
-    padding: 0.75rem 1.5rem;
-    margin: 1.5rem 0 1rem 0;
-    font-size: var(--font-size-base);
-    color: white !important;
-    background: var(--orange-500);
-    text-transform: uppercase;
-    text-align: left;
-    border-radius: 5px;
-    font-weight: 600;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--orange-700);
-    border-top: 1px solid var(--orange-300);
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    position: relative;
-  }
-  a:focus-visible {
-    outline: none;
-  }
-  button p {
-    width: max-content;
-  }
-  button img {
-    height: 15px;
-    margin-left: 0.5rem;
-  }
-  button::after {
-    content: "";
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: left;
-    height: 2px;
-    background: white;
-    bottom: 0px;
-    position: relative;
-    transition: all 300ms var(--ease);
-  }
-
-  button:hover::after,
-  a:focus button::after {
-    transform: scaleX(1.25);
-  }
-</style>

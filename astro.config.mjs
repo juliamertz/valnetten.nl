@@ -3,6 +3,7 @@ import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 import solidJs from "@astrojs/solid-js";
@@ -15,7 +16,7 @@ export default defineConfig({
   site: "https://wwww.valnetten.nl",
   integrations: [
     mdx(),
-
+    tailwind(),
     robotsTxt({
       host: "https://wwww.valnetten.nl",
     }),

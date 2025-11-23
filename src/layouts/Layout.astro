@@ -9,7 +9,7 @@ let img;
 
 if (frontmatter.image)
   img = await generateImage(frontmatter.image, {
-    widths: [1000],
+    widths: [1200, 1600],
     formats: ["avif"],
   });
 
@@ -17,64 +17,30 @@ const imgSrc = frontmatter.image ? img.avif[0].url : "";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <Head {...frontmatter} />
-  <body>
+  <body class="min-h-screen">
     <Navigation client:load />
     <main>
-      <section>
-        <img src={imgSrc} alt="banner image" />
-      </section>
-      <article>
-        <h1>{frontmatter.title.toUpperCase()}</h1>
+      {imgSrc && (
+        <section class="relative w-full h-64 md:h-96 lg:h-[32rem] overflow-hidden">
+          <img 
+            src={imgSrc} 
+            alt="banner image" 
+            class="absolute inset-0 w-full h-full object-cover" 
+          />
+          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4">
+              {frontmatter.title}
+            </h1>
+          </div>
+        </section>
+      )}
+      <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose">
+        {!imgSrc && <h1 class="mb-8">{frontmatter.title}</h1>}
         <slot />
       </article>
     </main>
-    <style>
-      main {
-        margin-top: -1.2rem;
-        padding: 0 3rem;
-        white-space: pre-line;
-      }
-
-      main section {
-        width: 100vw;
-        position: relative;
-        overflow: hidden;
-        height: 30rem;
-        left: -3rem;
-      }
-
-      @media (max-width: 560px) {
-        main {
-          padding: 0 1rem;
-        }
-        main section {
-          left: -1rem;
-          height: 20rem;
-        }
-      }
-
-      main article {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      main section::after {
-        width: 100vw;
-        content: "";
-        background: black;
-        position: absolute;
-        overflow: hidden;
-        height: 30rem;
-        top: 0;
-        opacity: 0.55;
-      }
-      main section img {
-        min-width: 100%;
-        position: absolute;
-        inset: 0;
-      }
-    </style>
   </body>
 </html>

@@ -7,22 +7,31 @@ description: "Valgevaar of werken op hoogte? Valnetten.nl heeft de kennis, mater
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 
-# Valnetten en randbeveiliging
+<div class="space-y-12 py-8">
+  <div class="space-y-4">
+    <h1 class="text-5xl md:text-6xl font-bold text-gray-900">Valnetten en randbeveiliging</h1>
+    <h2 class="text-xl md:text-2xl font-normal text-gray-600 max-w-3xl">Valgevaar of werken op hoogte? Valnetten.nl heeft de kennis, materialen en monteurs om u hierbij te helpen.</h2>
+  </div>
 
-## Valgevaar of werken op hoogte? Valnetten.nl heeft de kennis, materialen en monteurs om u hierbij te helpen.
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+    <Card
+      name="Diensten"
+      image="src/assets/Valnetten-Roop.jpg"
+      location="/diensten"
+    />
+    <Card
+      name="Randbeveiliging"
+      image="src/assets/randbeveiliging_2.jpg"
+      location="/randbeveiliging"
+    />
+    <Card 
+      name="Contact" 
+      image="src/assets/Montage_1.jpg" 
+      location="/contact" 
+    />
+  </section>
 
-<section class="card-wrapper">
-  <Card
-    name="diensten"
-    image="src/assets/Valnetten-Roop.jpg"
-    location="/diensten"
-  />
-  <Card
-    name="randbeveiliging"
-    image="src/assets/randbeveiliging_2.jpg"
-    location="/randbeveiliging"
-  />
-  <Card name="contact" image="src/assets/Montage_1.jpg" location="/contact" />
-</section>
-
-<Button href="#content" text="Lees meer" intent="primary" />
+  <div class="pt-4">
+    <Button href="#content" text="Lees meer" intent="primary" />
+  </div>
+</div>
