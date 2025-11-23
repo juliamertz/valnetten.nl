@@ -1,0 +1,28 @@
+---
+layout: "../layouts/HomeLayout.astro"
+title: "home"
+description: "Valgevaar of werken op hoogte? Valnetten.nl heeft de kennis, materialen en monteurs om u hierbij te helpen."
+---
+
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+
+# Valnetten en randbeveiliging
+
+## Valgevaar of werken op hoogte? Valnetten.nl heeft de kennis, materialen en monteurs om u hierbij te helpen.
+
+<section class="card-wrapper">
+  <Card
+    name="diensten"
+    image="src/assets/Valnetten-Roop.jpg"
+    location="/diensten"
+  />
+  <Card
+    name="randbeveiliging"
+    image="src/assets/randbeveiliging_2.jpg"
+    location="/randbeveiliging"
+  />
+  <Card name="contact" image="src/assets/Montage_1.jpg" location="/contact" />
+</section>
+
+<Button href="#content" text="Lees meer" intent="primary" />
