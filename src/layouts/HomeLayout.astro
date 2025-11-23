@@ -1,0 +1,121 @@
+---
+import { generateImage } from "astro-eleventy-img";
+
+import Navigation from "../components/Navigation";
+import Content from "../content/home.mdx";
+import "../styles/globals.css";
+import Head from "../components/Head.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <Head {...frontmatter} />
+  <body>
+    <Navigation client:load />
+    <main>
+      <div class="slot">
+        <slot />
+      </div>
+    </main>
+    <div class="content-wrapper">
+      <section id="content">
+        <Content />
+      </section>
+    </div>
+    <style is:global>
+      h1 {
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .slot h2 {
+        font-size: var(--font-size-base);
+        max-width: none;
+        font-weight: 400;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+    <style>
+      .slot {
+        position: relative;
+        z-index: 20;
+      }
+
+      section#content {
+        white-space: pre-line;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .content-wrapper {
+        padding: 1rem 3rem;
+        background: #fafafa;
+      }
+
+      main div {
+        padding: 0 3rem;
+      }
+
+      @media (max-width: 560px) {
+        main div,
+        section#content,
+        .content-wrapper {
+          padding: 0 1rem;
+        }
+      }
+
+      section div,
+      main {
+        max-width: 1500px;
+        margin: 0 auto;
+      }
+      main {
+        z-index: 50;
+        position: relative;
+        background: white;
+        box-shadow: 0 12px 10px -10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .background-wrapper {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        width: 100vw;
+        height: calc(100vh - 2rem);
+        overflow: hidden;
+        filter: grayscale(0.5);
+      }
+
+      .background-wrapper img {
+        min-width: 100%;
+        min-height: 100%;
+        position: relative;
+        z-index: 4;
+      }
+
+      .background-wrapper::before {
+        content: "";
+        z-index: 5;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(1px);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.8) 13%,
+          rgba(0, 0, 0, 0.7) 23%,
+          rgba(0, 0, 0, 0.7) 80%,
+          rgba(0, 0, 0, 1) 100%
+        );
+      }
+    </style>
+  </body>
+</html>

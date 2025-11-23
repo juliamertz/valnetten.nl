@@ -1,0 +1,29 @@
+---
+const { title, description } = Astro.props;
+---
+
+<>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content={description} />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap"
+    rel="stylesheet"
+  />
+  <title>Valnetten - {title}</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11658963-2"
+  ></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-11658963-2");
+  </script>
+</>
