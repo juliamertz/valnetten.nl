@@ -1,0 +1,35 @@
+name: Build and deploy (dev)
+
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    environment: dev
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: 1
+          arch: amd64
+
+      - name: Build static pages
+        run: npm ci --omit=dev && npm run build
+
+      - name: Upload to S3
+        run: aws s3 sync dist s3://valnetten
+        env:
+          AWS_DEFAULT_REGION: garage
+          AWS_ENDPOINT_URL: https://s3.juliamertz.dev
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
