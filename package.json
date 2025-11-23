@@ -19,7 +19,7 @@
     "astro": "^5.16.0",
     "astro-eleventy-img": "^0.6.2",
     "astro-robots-txt": "^0.3.10",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "solid-js": "^1.9.5"
   }
 }
