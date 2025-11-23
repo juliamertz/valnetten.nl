@@ -16,7 +16,7 @@
     "@astrojs/prefetch": "^0.1.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^1.2.2",
-    "astro": "^1.6.5",
+    "astro": "^5.15.9",
     "astro-eleventy-img": "^0.6.2",
     "astro-robots-txt": "^0.3.10",
     "npx": "^10.2.2",
