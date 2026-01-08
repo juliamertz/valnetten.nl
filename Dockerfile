@@ -8,10 +8,12 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM caddy:2
+FROM busybox:uclibc
 
-COPY --from=builder /app/dist /srv
+COPY --from=builder /app/dist /www
 
 EXPOSE 8080
 
-CMD ["caddy", "file-server", "--root", "/srv", "--listen", ":8080"]
+USER nobody
+
+CMD ["httpd", "-f", "-p", "8080", "-h", "/www"]
