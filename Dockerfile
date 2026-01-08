@@ -1,7 +1,17 @@
-FROM php:8.2-cli
+FROM node:20-alpine AS builder
 
-COPY . /usr/src/app
+WORKDIR /app
 
-WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm ci
 
-CMD [ "php", "main.php" ]
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
